@@ -59,13 +59,13 @@ def nyc_pigeon_organizer(data)
         if !new_hash[name]
           new_hash[name] = {}
         end
-        
+
         if !new_hash[name][characteristic]
           new_hash[name][characteristic] = []
         end
 
         new_hash[name][characteristic] << attribute.to_s
-        
+
       end
     end
   end
