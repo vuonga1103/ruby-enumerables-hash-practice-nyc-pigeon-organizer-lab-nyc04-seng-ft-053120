@@ -55,8 +55,14 @@ def nyc_pigeon_organizer(data)
   data.each do |characteristic, inner_hash|
     inner_hash.each do |attribute, name_array|
       name_array.each do |name|
-        new_hash[name][characteristic] = []
-        new_hash[name][characteristic] << attribute.to_s
+
+        if !new_hash[name]
+          new_hash[name] = {}
+        elsif !new_hash[name][characteristic]
+          new_hash[name][characteristic] = []
+        else
+          new_hash[name][characteristic] << attribute.to_s
+        end
       end
     end
   end
