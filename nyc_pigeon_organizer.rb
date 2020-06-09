@@ -56,14 +56,17 @@ def nyc_pigeon_organizer(data)
     inner_hash.each do |attribute, name_array|
       name_array.each do |name|
 
+        # If new_hash doesn't have pigeon name, add pigeon's name as key and set value to empty array
         if !new_hash[name]
           new_hash[name] = {}
         end
 
+        # If new_hash doesn't have a characteristic, add that characteristic, setting value to empty array
         if !new_hash[name][characteristic]
           new_hash[name][characteristic] = []
         end
 
+        # If new_hash has both pigeon's name and characteristic, then push into the array, the attribute, converted to string
         new_hash[name][characteristic] << attribute.to_s
 
       end
